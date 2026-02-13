@@ -1,4 +1,4 @@
-package com.nathanael.tucil1;
+package tucil1;
 
 /**
  * Hello world!
