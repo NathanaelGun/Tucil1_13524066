@@ -5,6 +5,16 @@ public class Board {
     private char[][] cells;
     private int[] queenPositions;
 
+    public Board(int size, char[][] cells) {
+        this.size = size;
+        this.cells = cells;
+        this.queenPositions = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            queenPositions[i] = -1;
+        }
+    }
+
     public boolean isSafe(int row, int col) {
         for (int i = 0; i < row; i++) {
             if (queenPositions[i] == col) {
@@ -13,9 +23,9 @@ public class Board {
             else if (Math.abs(row - i) <= 1 && Math.abs(col - queenPositions[i]) <= 1) {
                 return false;
             }
-            else if (cells[row][col] == cells[i][queenPositions[i]]) {
-                return false;
-            }
+            // else if (cells[row][col] == cells[i][queenPositions[i]]) {
+            //     return false;
+            // }
         }
         return true;
     }
