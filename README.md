@@ -24,13 +24,29 @@ Atau untuk membuat paket:
 mvn package
 ```
 
+Catatan: proyek dikonfigurasi agar output build ditempatkan di folder `bin` (mis. `bin/classes`).
+
 Menjalankan
 ----------
 1. Pastikan proyek sudah dikompilasi (lihat bagian Kompilasi).
-2. Jalankan program dari root proyek:
+2. Opsi menjalankan dari root proyek:
+
+- Menjalankan kelas hasil kompilasi (classpath menunjuk ke `bin/classes`):
 
 ```
-java -cp target/classes tucil1.Main
+java -cp bin/classes tucil1.Main
+```
+
+- Jika Anda membuat JAR (`mvn package`) dan paket JAR berada di `bin`:
+
+```
+java -jar bin/tucil1-1.0-SNAPSHOT.jar
+```
+
+- Menjalankan lewat Maven (tidak tergantung folder output):
+
+```
+mvn -Dexec.mainClass=tucil1.Main exec:java
 ```
 
 3. Saat diminta "Masukkan nama file test case:", isi path file input, mis. `test/TestCase1.txt`.
